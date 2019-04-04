@@ -1,0 +1,11 @@
+# systemctl --user enable kak-lsp
+[Unit]
+Description=Kak LSP daemon
+
+[Service]
+ExecStart=/bin/sh -c '/home/andreas/.local/bin/kak-lsp'
+Type=simple
+Restart=always
+
+[Install]
+WantedBy=default.target

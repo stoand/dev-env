@@ -1,0 +1,53 @@
+hook global InsertChar k %{ try %{
+  exec -draft hH <a-k>jk<ret> d
+  exec <esc>
+}}
+
+map global normal <space> , -docstring 'leader'
+
+# Quit
+map global user q ':waq<ret>' -docstring 'Write and Quit'
+# Paste
+map global user p '<a-!>xsel --output --clipboard<ret>'
+# Copy
+hook global NormalKey y|d|c %{ nop %sh{
+  printf %s "$kak_main_reg_dquote" | xsel --input --clipboard
+}}
+# Fuzzy Find File
+define-command -docstring 'Invoke fzf to open a file' -params 0 fzf-edit %{
+    evaluate-commands %sh{
+        if [ -z "${kak_client_env_TMUX}" ]; then
+            printf 'fail "client was not started under tmux"\n'
+        else
+            file="$(git ls-files |TMUX="${kak_client_env_TMUX}" fzf-tmux -d 15)"
+            if [ -n "$file" ]; then
+                printf 'edit "%s"\n' "$file"
+            fi
+        fi
+    }
+}
+map global user f ':fzf-edit' -docstring 'Fuzzy find git file'
+
+# Fuzzy Find Buffer
+define-command -docstring 'Invoke fzf to select a buffer' fzf-buffer %{
+    evaluate-commands %sh{
+        BUFFER=$(
+            (
+                eval "set -- $kak_buflist"
+                while [ $# -gt 0 ]; do
+                    printf "%s\0" "$1"
+                    shift
+                done
+            ) |
+            fzf-tmux -d 15 --read0
+        )
+        BUFFER=${BUFFER/\'/\'\'}
+        if [ -n "$BUFFER" ]; then
+            printf "buffer '%s'" "${BUFFER}"
+        fi
+    }
+}
+map global user b ':fzf-buffer' -docstring 'Fuzzy find buffer'
+
+eval %sh{kak-lsp --kakoune -s $kak_session}
+lsp-enable
