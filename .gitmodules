@@ -1,0 +1,3 @@
+[submodule ".kakoune-idris"]
+	path = .kakoune-idris
+	url = /home/andreas/.kakoune-idris/
