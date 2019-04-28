@@ -5,6 +5,10 @@ hook global InsertChar k %{ try %{
 
 set global tabstop 4
 
+
+# Hook global write
+hook global NormalIdle .* write-all
+
 # Set leader key
 map global normal <space> , -docstring 'leader'
 
