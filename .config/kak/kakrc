@@ -12,6 +12,9 @@ hook global NormalIdle .* write-all
 # Set leader key
 map global normal <space> , -docstring 'leader'
 
+# Git commit
+map global user a ':eval %sh{git add "${kak_bufname}"; git add -u}; git commit<ret>' -docstring 'Commit and push'
+
 # Write
 map global user w ':wa<ret>' -docstring 'Write'
 # Quit
@@ -53,7 +56,6 @@ define-command -docstring 'Invoke fzf to select a buffer' fzf-buffer %{
             ) |
             fzf-tmux -d 15 --read0
         )
-        # BUFFER=${BUFFER/\'/\'\'}
         if [ -n "$BUFFER" ]; then
             printf 'buffer "%s"\n' "${BUFFER}"
         fi
