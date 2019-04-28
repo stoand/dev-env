@@ -57,7 +57,11 @@ define-command -docstring 'Invoke fzf to select a buffer' fzf-buffer %{
 }
 map global user b ':fzf-buffer<ret>' -docstring 'Fuzzy find buffer'
 
+map global user s ':surround<ret><b>' -docstring 'Surround ()'
+map global user S ':delete-surround<ret><b>' -docstring 'Unsurround ()'
+
 source ~/.kakoune-idris/idris.kak
+source ~/.kakoune-surround/surround.kak
 
 eval %sh{kak-lsp --kakoune -s $kak_session}
 lsp-enable
