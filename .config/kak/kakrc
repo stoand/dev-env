@@ -3,16 +3,25 @@ hook global InsertChar k %{ try %{
   exec <esc>
 }}
 
+set global tabstop 4
+
+# Set leader key
 map global normal <space> , -docstring 'leader'
 
+# Write
+map global user w ':wa<ret>' -docstring 'Write'
 # Quit
 map global user q ':waq<ret>' -docstring 'Write and Quit'
 # Paste
-map global user p '<a-!>xsel --output --clipboard<ret>'
+map global user p '<a-!>xsel --output --clipboard<ret>' -docstring 'Paste'
 # Copy
 hook global NormalKey y|d|c %{ nop %sh{
   printf %s "$kak_main_reg_dquote" | xsel --input --clipboard
 }}
+# Comment
+map global user c ':comment-line<ret>' -docstring 'Comment'
+# Format
+map global user f ':lsp-formatting-sync<ret>' -docstring 'LSP Format'
 # Fuzzy Find File
 define-command -docstring 'Invoke fzf to open a file' -params 0 fzf-edit %{
     evaluate-commands %sh{
@@ -26,8 +35,7 @@ define-command -docstring 'Invoke fzf to open a file' -params 0 fzf-edit %{
         fi
     }
 }
-map global user f ':fzf-edit' -docstring 'Fuzzy find git file'
-
+map global user g ':fzf-edit<ret>' -docstring 'Fuzzy find git file'
 # Fuzzy Find Buffer
 define-command -docstring 'Invoke fzf to select a buffer' fzf-buffer %{
     evaluate-commands %sh{
@@ -41,13 +49,15 @@ define-command -docstring 'Invoke fzf to select a buffer' fzf-buffer %{
             ) |
             fzf-tmux -d 15 --read0
         )
-        BUFFER=${BUFFER/\'/\'\'}
+        # BUFFER=${BUFFER/\'/\'\'}
         if [ -n "$BUFFER" ]; then
-            printf "buffer '%s'" "${BUFFER}"
+            printf 'buffer "%s"\n' "${BUFFER}"
         fi
     }
 }
-map global user b ':fzf-buffer' -docstring 'Fuzzy find buffer'
+map global user b ':fzf-buffer<ret>' -docstring 'Fuzzy find buffer'
+
+source ~/.kakoune-idris/idris.kak
 
 eval %sh{kak-lsp --kakoune -s $kak_session}
 lsp-enable

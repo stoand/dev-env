@@ -118,6 +118,14 @@ fi
 
 export PATH=$PATH:~/.local/bin
 export PATH=$PATH:~/.cargo/bin
+export PATH=$PATH:~/.cabal/bin
 export PATH=$PATH:~/.fzf/bin
+export PATH=$PATH:~/.blodwen/bin
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
+
+alias tm="tmux new-session \; send-keys 'kak' C-m \; split-window -h \;"
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
