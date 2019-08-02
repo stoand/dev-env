@@ -24,12 +24,15 @@ map global user c ':comment-line<ret>' -docstring 'Comment'
 map global user d ':lsp-definition<ret>' -docstring 'LSP Definition'
 
 # Search
-map global user e ':grep %val{selection}<ret>' -docstring 'Search for selection'
+map global user e ':grep %val{selection} --exclude-dir=target --exclude-dir=node_modules<ret>' -docstring 'Search for selection'
 
 # Format
 map global user f ':lsp-formatting-sync<ret>' -docstring 'LSP Format'
 
 map global user g ':fzf-edit<ret>' -docstring 'Fuzzy find git file'
+
+# LSP Diagnostics
+map global user h ':lsp-diagnostics<ret>' -docstring 'LSP Diagnostics'
 
 # Paste
 map global user p '<a-!>xsel --output --clipboard<ret>' -docstring 'Paste'

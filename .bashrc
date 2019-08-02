@@ -125,6 +125,8 @@ export PATH=$PATH:~/.blodwen/bin
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 
 alias tm="tmux new-session \; send-keys 'kak' C-m \; split-window -h \;"
+alias i="sudo apt install -y "
+
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm

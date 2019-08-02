@@ -1,4 +1,4 @@
-verbosity = 2
+verbosity = 3
 
 [server]
 # exit session if no requests were received during given period in seconds
@@ -16,6 +16,11 @@ filetypes = ["javascript"]
 roots = ["package.json"]
 command = "typescript-language-server"
 args = ["--stdio"]
+
+[language.clojure]
+filetypes = ["clojure"]
+roots = ["project.clj"]
+command = "clojure-lsp"
 
 [language.json]
 filetypes = ["json"]
