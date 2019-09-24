@@ -34,6 +34,9 @@ map global user g ':fzf-edit<ret>' -docstring 'Fuzzy find git file'
 # LSP Diagnostics
 map global user h ':lsp-diagnostics<ret>' -docstring 'LSP Diagnostics'
 
+# Git Diff
+map global user i ':git diff<ret>' -docstring 'Git Diff'
+
 # Paste
 map global user p '<a-!>xsel --output --clipboard<ret>' -docstring 'Paste'
 
@@ -87,6 +90,7 @@ define-command -docstring 'Invoke fzf to select a buffer' fzf-buffer %{
 }
 
 source ~/.kakoune-idris/idris.kak
+source ~/.kakoune-formality/formality.kak
 source ~/.kakoune-surround/surround.kak
 
 eval %sh{kak-lsp --kakoune -s $kak_session}
