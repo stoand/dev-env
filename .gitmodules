@@ -4,3 +4,6 @@
 [submodule "/home/andreas/.kakoune-surround"]
 	path = /home/andreas/.kakoune-surround
 	url = https://github.com/h-youhei/kakoune-surround
+[submodule ".kakoune-formality"]
+	path = .kakoune-formality
+	url = git@github.com:stoand/kakoune-formality.git
