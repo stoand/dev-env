@@ -124,7 +124,7 @@ export PATH=$PATH:~/.blodwen/bin
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 
-alias tm="tmux new-session \; send-keys 'kak' C-m \; split-window -h \;"
+alias tm="tmux new-session \; send-keys 'kak' C-m \; split-window -h \; resize-pane -R 20 \; last-pane \;"
 alias i="sudo apt install -y "
 alias ed="kak"
 
