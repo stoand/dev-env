@@ -127,6 +127,7 @@ export PATH=$PATH:~/.blodwen/bin
 alias tm="tmux new-session \; send-keys 'kak' C-m \; split-window -h \; resize-pane -R 20 \; last-pane \;"
 alias i="sudo apt install -y "
 alias ed="kak"
+alias gc="git clone "
 
 
 export NVM_DIR="$HOME/.nvm"
