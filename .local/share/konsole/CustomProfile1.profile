@@ -1,10 +1,10 @@
 [Appearance]
 AntiAliasFonts=true
 BoldIntense=true
-ColorScheme=KakouneBase16
-Font=Liberation Mono,11,-1,0,50,0,0,0,0,0,Regular
+ColorScheme=Pale Night
+Font=Hack,11,-1,0,50,0,0,0,0,0,Regular
 UseFontLineChararacters=false
 
 [General]
-Name=KakouneBase16
+Name=CustomProfile1
 Parent=FALLBACK/

@@ -107,6 +107,6 @@ source ~/.kakoune-surround/surround.kak
 eval %sh{kak-lsp --kakoune -s $kak_session}
 lsp-enable
 
-colorscheme base16
+colorscheme palenight
 
 lsp-auto-hover-enable
