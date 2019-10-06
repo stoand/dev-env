@@ -129,6 +129,8 @@ alias i="sudo apt install -y "
 alias ed="kak"
 alias gc="git clone "
 
+# Fix colors according to https://discuss.kakoune.com/t/frequently-asked-questions-faq/542
+tic ~/.kakoune/contrib/tmux-256color.terminfo
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm

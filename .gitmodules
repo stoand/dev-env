@@ -7,3 +7,6 @@
 [submodule ".kakoune-formality"]
 	path = .kakoune-formality
 	url = git@github.com:stoand/kakoune-formality.git
+[submodule ".kakoune"]
+	path = .kakoune
+	url = git@github.com:mawww/kakoune.git
