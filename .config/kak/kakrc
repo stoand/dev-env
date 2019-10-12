@@ -5,6 +5,7 @@ hook global InsertChar k %{ try %{
 
 set global tabstop 4
 set global ui_options ncurses_assistant=off
+add-highlighter global/ show-matching
 
 # Hook global write
 hook global NormalIdle .* write-all
@@ -107,6 +108,6 @@ source ~/.kakoune-surround/surround.kak
 eval %sh{kak-lsp --kakoune -s $kak_session}
 lsp-enable
 
-colorscheme palenight
+colorscheme base16
 
 lsp-auto-hover-enable

@@ -121,6 +121,8 @@ export PATH=$PATH:~/.cargo/bin
 export PATH=$PATH:~/.cabal/bin
 export PATH=$PATH:~/.fzf/bin
 export PATH=$PATH:~/.blodwen/bin
+export PATH=$PATH:~/.idris2/bin
+export PATH=$PATH:~/.lutris/bin
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 
