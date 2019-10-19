@@ -16,6 +16,7 @@ mv /tmp/dev-env/* ~/
 
 # Install Kakoune
 (cd ~/.kakoune/src && make -j && PREFIX=$HOME/.local make install)
+
 # Install fzf
 ~/.fzf/install
 
@@ -31,4 +32,7 @@ tm
 
 # To start using languages you have to install servers
 # https://github.com/ul/kak-lsp/wiki/How-to-install-servers
+
+# To get the correct theme in Konsole
+# Right click -> Edit Current Profile -> Appearance -> KakouneBase16
 ```
