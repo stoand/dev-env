@@ -10,3 +10,6 @@
 [submodule ".kakoune"]
 	path = .kakoune
 	url = git@github.com:mawww/kakoune.git
+[submodule ".fzf"]
+	path = .fzf
+	url = https://github.com/junegunn/fzf
