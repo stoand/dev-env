@@ -2,7 +2,7 @@
 	path = .kakoune-idris
 	url = git@github.com:stoand/kakoune-idris.git
 [submodule ".kakoune-surround"]
-	path = /home/andreas/.kakoune-surround
+	path = .kakoune-surround
 	url = git@github.com:h-youhei/kakoune-surround.git
 [submodule ".kakoune-formality"]
 	path = .kakoune-formality
