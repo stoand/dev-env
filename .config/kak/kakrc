@@ -16,8 +16,6 @@ map global normal <space> , -docstring 'leader'
 # Git commit
 map global user a ':eval %sh{git add "${kak_bufname}"; git add -u}; git commit<ret>' -docstring 'Commit and push'
 
-map global user b ':fzf-buffer<ret>' -docstring 'Fuzzy find buffer'
-
 # Comment
 map global user c ':comment-line<ret>' -docstring 'Comment'
 
@@ -30,13 +28,17 @@ map global user e ':grep %val{selection} --exclude-dir=target --exclude-dir=node
 # Format
 map global user f ':lsp-formatting-sync<ret>' -docstring 'LSP Format'
 
-map global user g ':fzf-edit<ret>' -docstring 'Fuzzy find git file'
-
 # LSP Diagnostics
 map global user h ':lsp-diagnostics<ret>' -docstring 'LSP Diagnostics'
 
 # Git Diff
 map global user i ':git diff<ret>' -docstring 'Git Diff'
+
+map global user j ':fzf-edit<ret>' -docstring 'Fuzzy find git file'
+
+map global user k ':fzf-buffer<ret>' -docstring 'Fuzzy find buffer'
+
+map global user l ':fzf-project<ret>' -docstring 'Fuzzy find project in home directory'
 
 # Paste
 map global user p '<a-!>xsel --output --clipboard<ret>' -docstring 'Paste'
@@ -71,6 +73,21 @@ define-command -docstring 'Invoke fzf to open a file' -params 0 fzf-edit %{
         fi
     }
 }
+
+# Fuzzy Find Project
+define-command -docstring 'Invoke fzf to open a project in the home directory' -params 0 fzf-project %{
+    evaluate-commands %sh{
+        if [ -z "${kak_client_env_TMUX}" ]; then
+            printf 'fail "client was not started under tmux"\n'
+        else
+            file="$(ls ~/ |TMUX="${kak_client_env_TMUX}" fzf-tmux -d 15)"
+            if [ -n "$file" ]; then
+                printf 'cd "~/%s"\n' "$file"
+            fi
+        fi
+    }
+}
+
 # Fuzzy Find Buffer
 define-command -docstring 'Invoke fzf to select a buffer' fzf-buffer %{
     evaluate-commands %sh{
