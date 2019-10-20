@@ -13,6 +13,12 @@ hook global NormalIdle .* write-all
 # Set leader key
 map global normal <space> , -docstring 'leader'
 
+map global normal 1 ':tmux-run-shell 1 %val{selection}<ret>'
+map global normal 2 ':tmux-run-shell 2 %val{selection}<ret>'
+map global normal 3 ':tmux-run-shell 3 %val{selection}<ret>'
+map global normal 4 ':tmux-run-shell 4 %val{selection}<ret>'
+map global normal 5 ':tmux-run-shell 5 %val{selection}<ret>'
+
 # Git commit
 map global user a ':eval %sh{git add "${kak_bufname}"; git add -u}; git commit<ret>' -docstring 'Commit and push'
 
@@ -40,6 +46,8 @@ map global user k ':fzf-buffer<ret>' -docstring 'Fuzzy find buffer'
 
 map global user l ':fzf-project<ret>' -docstring 'Fuzzy find project in home directory'
 
+map global user o ':e ~/.config/kak/kakrc<ret>' -docstring 'Edit config'
+
 # Paste
 map global user p '<a-!>xsel --output --clipboard<ret>' -docstring 'Paste'
 
@@ -59,6 +67,12 @@ map global user w ':wa<ret>' -docstring 'Write'
 hook global NormalKey y|d|c %{ nop %sh{
   printf %s "$kak_main_reg_dquote" | xsel --input --clipboard
 }}
+
+define-command -docstring 'Run a shell command in the given tmux tab' -params 2 tmux-run-shell %{
+    nop %sh{
+        tmux send-keys -t $(tmux display-message -p '#S').$1 "$2" ENTER
+    }
+}
 
 # Fuzzy Find File
 define-command -docstring 'Invoke fzf to open a file' -params 0 fzf-edit %{
@@ -87,6 +101,7 @@ define-command -docstring 'Invoke fzf to open a project in the home directory' -
         fi
     }
 }
+
 
 # Fuzzy Find Buffer
 define-command -docstring 'Invoke fzf to select a buffer' fzf-buffer %{

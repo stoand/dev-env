@@ -126,7 +126,7 @@ export PATH=$PATH:~/.lutris/bin
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 
-alias tm="tmux new-session \; send-keys 'kak' C-m \; split-window -h \; resize-pane -R 20 \; last-pane \;"
+alias tm="tmux new-session \; send-keys 'kak' C-m \; split-window -h \; split-window -v \; resize-pane -R 20 \; select-pane -t 0"
 alias i="sudo apt install -y "
 alias ed="kak"
 alias gc="git clone "
