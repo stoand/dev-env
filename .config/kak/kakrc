@@ -40,6 +40,8 @@ map global user k ':fzf-buffer<ret>' -docstring 'Fuzzy find buffer'
 
 map global user l ':fzf-project<ret>' -docstring 'Fuzzy find project in home directory'
 
+map global user o ':fzf-branch<ret>' -docstring 'Fuzzy find branch'
+
 # Paste
 map global user p '<a-!>xsel --output --clipboard<ret>' -docstring 'Paste'
 
@@ -80,9 +82,9 @@ define-command -docstring 'Invoke fzf to open a project in the home directory' -
         if [ -z "${kak_client_env_TMUX}" ]; then
             printf 'fail "client was not started under tmux"\n'
         else
-            file="$(ls ~/ |TMUX="${kak_client_env_TMUX}" fzf-tmux -d 15)"
-            if [ -n "$file" ]; then
-                printf 'cd "~/%s"\n' "$file"
+            dir="$(ls ~/ |TMUX="${kak_client_env_TMUX}" fzf-tmux -d 15)"
+            if [ -n "$dir" ]; then
+                printf 'cd "~/%s"\n' "$dir"
             fi
         fi
     }
@@ -107,6 +109,20 @@ define-command -docstring 'Invoke fzf to select a buffer' fzf-buffer %{
     }
 }
 
+# Fuzzy Find Branch
+define-command -docstring 'Invoke fzf to checkout a branch' -params 0 fzf-branch %{
+    evaluate-commands %sh{
+        if [ -z "${kak_client_env_TMUX}" ]; then
+            printf 'fail "client was not started under tmux"\n'
+        else
+            branch="$(git branch --format='%(refname:short)' -a |TMUX="${kak_client_env_TMUX}" fzf-tmux -d 15)"
+            if [ -n "$branch" ]; then
+                printf 'git checkout "%s"\n' "$branch"
+            fi
+        fi
+    }
+}
+
 
 # Adapted from the smarttab plugin
 hook global InsertDelete ' ' %{ try %sh{
@@ -121,6 +137,9 @@ hook global InsertDelete ' ' %{ try %sh{
 source ~/.kakoune-idris/idris.kak
 source ~/.kakoune-formality/formality.kak
 source ~/.kakoune-surround/surround.kak
+source ~/.kakoune-gdb/gdb.kak
+
+map global normal <minus> ':enter-user-mode idris-ide<ret>'
 
 eval %sh{kak-lsp --kakoune -s $kak_session}
 lsp-enable

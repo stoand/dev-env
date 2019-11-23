@@ -13,3 +13,6 @@
 [submodule ".fzf"]
 	path = .fzf
 	url = https://github.com/junegunn/fzf
+[submodule ".kakoune-gdb"]
+	path = .kakoune-gdb
+	url = https://github.com/occivink/kakoune-gdb

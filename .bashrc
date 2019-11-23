@@ -130,6 +130,8 @@ alias tm="tmux new-session \; send-keys 'kak' C-m \; split-window -h \; resize-p
 alias i="sudo apt install -y "
 alias ed="kak"
 alias gc="git clone "
+alias gp="git pull"
+alias gf="git fetch --all"
 
 # Fix colors according to https://discuss.kakoune.com/t/frequently-asked-questions-faq/542
 tic ~/.kakoune/contrib/tmux-256color.terminfo
