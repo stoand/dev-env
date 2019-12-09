@@ -14,7 +14,7 @@ hook global NormalIdle .* write-all
 map global normal <space> , -docstring 'leader'
 
 # Git commit
-map global user a ':eval %sh{git add "${kak_bufname}"; git add -u}; git commit<ret>' -docstring 'Commit and push'
+map global user a ':eval %sh{git add "${kak_bufname}"; git add -u}; git commit<ret>' -docstring 'Commit all changes'
 
 # Comment
 map global user c ':comment-line<ret>' -docstring 'Comment'
@@ -27,6 +27,12 @@ map global user e ':grep %val{selection} --exclude-dir=target --exclude-dir=node
 
 # Format
 map global user f ':lsp-formatting-sync<ret>' -docstring 'LSP Format'
+
+# Git Diff current
+map global user g ':git diff %val{bufname}<ret>' -docstring 'Git Diff current'
+
+# Git commit current file
+map global user G ':eval %sh{git add "${kak_bufname}"}; git commit<ret>' -docstring 'Commit current file'
 
 # LSP Diagnostics
 map global user h ':lsp-diagnostics<ret>' -docstring 'LSP Diagnostics'
@@ -133,6 +139,14 @@ hook global InsertDelete ' ' %{ try %sh{
         execute-keys -itersel -draft "h%opt{tabstop}<s-h>2<s-l>s\h+\z<ret>d"
     }
 }}
+
+# Differentiate tsx files
+ 
+hook global BufCreate .*[.](tsx) %{
+    set-option buffer filetype typescriptreact
+}
+
+init-javascript-filetype typescriptreact
 
 source ~/.kakoune-idris/idris.kak
 source ~/.kakoune-formality/formality.kak

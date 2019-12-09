@@ -132,6 +132,7 @@ alias ed="kak"
 alias gc="git clone "
 alias gp="git pull"
 alias gf="git fetch --all"
+alias gs="git push"
 
 # Fix colors according to https://discuss.kakoune.com/t/frequently-asked-questions-faq/542
 tic ~/.kakoune/contrib/tmux-256color.terminfo
