@@ -91,6 +91,13 @@ define-command -docstring 'Git Rename' -params 1 gr %{
     write
 }
 
+# Git Delete
+define-command -docstring 'Git Delete' -params 0 gd %{
+    try %sh{ git rm "$kak_bufname" }
+    
+    delete-buffer!
+}
+
 # Fuzzy Find File
 define-command -docstring 'Invoke fzf to open a file' -params 0 fzf-edit %{
     evaluate-commands %sh{
