@@ -8,13 +8,24 @@ set global ui_options ncurses_assistant=off
 add-highlighter global/ show-matching
 
 # Hook global write
-hook global NormalIdle .* write-all
+hook global NormalIdle .*(?!COMMIT_EDITMSG) write-all
 
 # Set leader key
 map global normal <space> , -docstring 'leader'
 
 # Git commit
-map global user a ':eval %sh{git add "${kak_bufname}"; git add -u}; git commit<ret>' -docstring 'Commit all changes'
+map global user a ':commit-if-valid-file<ret>' -docstring 'Commit all changes'
+define-command -hidden commit-if-valid-file %{
+    try %sh{
+        # a real file and not a git commit
+        if [ -f "$kak_bufname" ] || [ "$kak_opt_filetype" -ne "git-commit" ]; then 
+        	git add "$kak_bufname"
+        fi
+        git add -u
+    }
+    
+    git commit
+}
 
 # Comment
 map global user c ':comment-line<ret>' -docstring 'Comment'
@@ -29,16 +40,16 @@ map global user e ':grep %val{selection} --exclude-dir=target --exclude-dir=node
 map global user f ':lsp-formatting-sync<ret>' -docstring 'LSP Format'
 
 # Git Diff current
-map global user g ':git diff %val{bufname}<ret>' -docstring 'Git Diff current'
+map global user g ':git diff HEAD -- %val{bufname}<ret>' -docstring 'Git Diff current'
 
 # Git commit current file
-map global user G ':eval %sh{git add "${kak_bufname}"}; git commit<ret>' -docstring 'Commit current file'
+map global user G ':git add %val{bufname}; git commit %val{bufname}<ret>' -docstring 'Commit current file'
 
 # LSP Diagnostics
 map global user h ':lsp-diagnostics<ret>' -docstring 'LSP Diagnostics'
 
 # Git Diff
-map global user i ':git diff<ret>' -docstring 'Git Diff'
+map global user i ':git diff HEAD<ret>' -docstring 'Git Diff'
 
 map global user j ':fzf-edit<ret>' -docstring 'Fuzzy find git file'
 
@@ -147,6 +158,11 @@ hook global BufCreate .*[.](tsx) %{
 }
 
 init-javascript-filetype typescriptreact
+
+# Abort commit
+hook global WinSetOption filetype=git-commit %{
+	map buffer normal <esc> ':delete-buffer!<ret>';
+}
 
 source ~/.kakoune-idris/idris.kak
 source ~/.kakoune-formality/formality.kak
