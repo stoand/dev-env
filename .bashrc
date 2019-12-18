@@ -124,6 +124,9 @@ export PATH=$PATH:~/.blodwen/bin
 export PATH=$PATH:~/.idris2/bin
 export PATH=$PATH:~/.lutris/bin
 
+# Suppress node warnings especially the ES module type warnings
+export NODE_NO_WARNINGS=1
+
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 
 alias tm="tmux new-session \; send-keys 'kak' C-m \; split-window -h \; resize-pane -R 20 \; last-pane \;"

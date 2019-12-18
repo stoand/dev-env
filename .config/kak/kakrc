@@ -79,8 +79,8 @@ hook global NormalKey y|d|c %{ nop %sh{
   printf %s "$kak_main_reg_dquote" | xsel --input --clipboard
 }}
 
-# Git Rename
-define-command -docstring 'Git Rename' -params 1 gr %{
+# Git Move
+define-command -docstring 'Git Move' -params 1 gm %{
     try %sh{
     	git add "$kak_bufname"
     	git mv "$kak_bufname" "$1"
@@ -93,7 +93,9 @@ define-command -docstring 'Git Rename' -params 1 gr %{
 
 # Git Delete
 define-command -docstring 'Git Delete' -params 0 gd %{
-    try %sh{ git rm "$kak_bufname" }
+    try %sh{
+        git rm "$kak_bufname" -f
+    }
     
     delete-buffer!
 }
