@@ -136,6 +136,9 @@ alias gc="git clone "
 alias gp="git pull --all"
 alias gf="git fetch --all"
 alias gs="git push -u origin HEAD"
+alias bw='sudo /home/andreas/.cargo/bin/bandwhich'
+alias aw='nodemon -e md -x "art ls -NS"'
+alias as='art serve'
 
 # Fix colors according to https://discuss.kakoune.com/t/frequently-asked-questions-faq/542
 tic ~/.kakoune/contrib/tmux-256color.terminfo
