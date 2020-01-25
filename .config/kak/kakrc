@@ -189,6 +189,7 @@ source ~/.kakoune-idris/idris.kak
 source ~/.kakoune-formality/formality.kak
 source ~/.kakoune-surround/surround.kak
 source ~/.kakoune-gdb/gdb.kak
+source ~/.coqoune/coqoune.kak
 
 map global normal <minus> ':enter-user-mode idris-ide<ret>'
 
