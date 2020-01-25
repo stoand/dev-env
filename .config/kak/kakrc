@@ -122,6 +122,8 @@ define-command -docstring 'Invoke fzf to open a project in the home directory' -
         else
             dir="$(ls ~/ |TMUX="${kak_client_env_TMUX}" fzf-tmux -d 15)"
             if [ -n "$dir" ]; then
+            	# Change default tmux directory when splitting panes
+                tmux attach -t "$(tmux display-message -p '#S')" -c "$HOME/$dir"
                 printf 'cd "~/%s"\n' "$dir"
             fi
         fi
