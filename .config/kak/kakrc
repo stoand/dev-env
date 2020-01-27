@@ -43,7 +43,8 @@ map global user f ':lsp-formatting-sync<ret>' -docstring 'LSP Format'
 map global user g ':git diff HEAD -- %val{bufname}<ret>' -docstring 'Git Diff current'
 
 # Git commit current file
-map global user G ':git add %val{bufname}; git commit %val{bufname}<ret>' -docstring 'Commit current file'
+map global user G ':git-reset; git add %val{bufname}; git commit<ret>' -docstring 'Commit current file'
+define-command -hidden git-reset %{ try %sh{ git reset } }
 
 # LSP Diagnostics
 map global user h ':lsp-diagnostics<ret>' -docstring 'LSP Diagnostics'
@@ -198,6 +199,7 @@ map global normal <minus> ':enter-user-mode idris-ide<ret>'
 eval %sh{kak-lsp --kakoune -s $kak_session}
 lsp-enable
 
-colorscheme base16
+# colorscheme base16
+colorscheme github
 
 lsp-auto-hover-enable
