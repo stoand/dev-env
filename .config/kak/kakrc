@@ -199,7 +199,6 @@ map global normal <minus> ':enter-user-mode idris-ide<ret>'
 eval %sh{kak-lsp --kakoune -s $kak_session}
 lsp-enable
 
-# colorscheme base16
-colorscheme github
+colorscheme base16
 
 lsp-auto-hover-enable

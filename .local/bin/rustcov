@@ -1,7 +1,12 @@
+#!/bin/bash
 if [ -n "$1" ]; then
-    zip -0 target/ccov.zip "$1"
-    grcov target/ccov.zip -s . -t lcov --llvm --branch --ignore-not-existing -o target/lcov.info
-    genhtml target/lcov.info --output-directory target/cov
+	rm target/ccov.zip -rf
+	# remove extension
+	name=$(echo "$1" | cut -f 1 -d '.') && \
+    zip -0 target/ccov.zip "$name.gcno" && \
+    zip -0 target/ccov.zip "$name.gcda" && \
+    grcov target/ccov.zip -s . --llvm --branch --ignore "/*" -o target/lcov.info && \
+    genhtml target/lcov.info --output-directory target/cov && \
 	xdg-open target/cov/index.html
 else 
 	echo "usage:"
@@ -12,5 +17,5 @@ else
 	echo 'export RUSTFLAGS="-Zprofile -Ccodegen-units=1 -Cinline-threshold=0 -Clink-dead-code -Coverflow-checks=off -Zno-landing-pads"'
 	echo "cargo clean"
 	echo "cargo run --example hello"
-	echo "rustcov target/debug/examples/hello-ec9cee6f24660c22.gcda"
+	echo "rustcov target/debug/examples/hello-ec9cee6f24660c22"
 fi

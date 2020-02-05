@@ -139,6 +139,7 @@ alias gs="git push"
 alias bw='sudo /home/andreas/.cargo/bin/bandwhich'
 alias aw='nodemon -e md,idr,rs -x "art ls -NS"'
 alias as='art serve'
+alias chez='scheme'
 
 # Fix colors according to https://discuss.kakoune.com/t/frequently-asked-questions-faq/542
 tic ~/.kakoune/contrib/tmux-256color.terminfo
