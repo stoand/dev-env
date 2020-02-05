@@ -1,0 +1,16 @@
+if [ -n "$1" ]; then
+    zip -0 target/ccov.zip "$1"
+    grcov target/ccov.zip -s . -t lcov --llvm --branch --ignore-not-existing -o target/lcov.info
+    genhtml target/lcov.info --output-directory target/cov
+	xdg-open target/cov/index.html
+else 
+	echo "usage:"
+	echo ""
+	echo "install lcov grcov (https://github.com/mozilla/grcovand)"
+	echo ""
+	echo "export CARGO_INCREMENTAL=0"
+	echo 'export RUSTFLAGS="-Zprofile -Ccodegen-units=1 -Cinline-threshold=0 -Clink-dead-code -Coverflow-checks=off -Zno-landing-pads"'
+	echo "cargo clean"
+	echo "cargo run --example hello"
+	echo "rustcov target/debug/examples/hello-ec9cee6f24660c22.gcda"
+fi
