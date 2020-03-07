@@ -190,15 +190,15 @@ hook global WinSetOption filetype=git-commit %{
 
 source ~/.kakoune-idris/idris.kak
 source ~/.kakoune-formality/formality.kak
+source ~/.kakoune-datafun/datafun.kak
 source ~/.kakoune-surround/surround.kak
 source ~/.kakoune-gdb/gdb.kak
 source ~/.coqoune/coqoune.kak
 
 map global normal <minus> ':enter-user-mode idris-ide<ret>'
 
-eval %sh{kak-lsp --kakoune -s $kak_session}
-lsp-enable
+# eval %sh{kak-lsp --kakoune -s $kak_session}
+# lsp-enable
+# lsp-auto-hover-enable
 
 colorscheme base16
-
-lsp-auto-hover-enable

@@ -1,6 +1,9 @@
 [submodule ".kakoune-idris"]
 	path = .kakoune-idris
 	url = git@github.com:stoand/kakoune-idris.git
+[submodule ".kakoune-datafun"]
+	path = .kakoune-datafun
+	url = git@github.com:stoand/kakoune-datafun.git
 [submodule ".kakoune-surround"]
 	path = .kakoune-surround
 	url = git@github.com:h-youhei/kakoune-surround.git
