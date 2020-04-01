@@ -22,3 +22,6 @@
 [submodule ".coqoune"]
 	path = .coqoune
 	url = https://github.com/dkhalansky/coqoune
+[submodule ".kakoune-verilog"]
+	path = .kakoune-verilog
+	url = https://github.com/occivink/kakoune-verilog

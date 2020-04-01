@@ -192,13 +192,20 @@ source ~/.kakoune-idris/idris.kak
 source ~/.kakoune-formality/formality.kak
 source ~/.kakoune-datafun/datafun.kak
 source ~/.kakoune-surround/surround.kak
+source ~/.kakoune-verilog/verilog.kak
 source ~/.kakoune-gdb/gdb.kak
 source ~/.coqoune/coqoune.kak
 
+declare-option str kiwi_color_fail
+set-option global kiwi_color_fail "StatusLineMode"
+
+declare-option str kiwi_color_success
+set-option global kiwi_color_success "StatusLineValue"
+
 map global normal <minus> ':enter-user-mode idris-ide<ret>'
 
-# eval %sh{kak-lsp --kakoune -s $kak_session}
-# lsp-enable
-# lsp-auto-hover-enable
+eval %sh{kak-lsp --kakoune -s $kak_session}
+lsp-enable
+lsp-auto-hover-enable
 
 colorscheme base16
