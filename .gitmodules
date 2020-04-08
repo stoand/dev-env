@@ -24,4 +24,4 @@
 	url = https://github.com/dkhalansky/coqoune
 [submodule ".kakoune-verilog"]
 	path = .kakoune-verilog
-	url = https://github.com/occivink/kakoune-verilog
+	url = git@github.com:stoand/kakoune-verilog.git
