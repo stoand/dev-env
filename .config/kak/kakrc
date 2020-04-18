@@ -208,4 +208,10 @@ eval %sh{kak-lsp --kakoune -s $kak_session}
 lsp-enable
 lsp-auto-hover-enable
 
+def -override -hidden lsp-show-error -params 1 -docstring "Render error" %{
+    echo -debug "kak-lsp:" %arg{1}
+}
+
+set global lsp_cmd "kak-lsp -s %val{session} -vvv --log /tmp/kak-lsp.log"
+
 colorscheme base16
