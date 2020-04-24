@@ -24,11 +24,11 @@ filetypes = ["typescriptreact"]
 roots = ["package.json"]
 command = "javascript-typescript-stdio"
 
-# [language.clojure]
-# filetypes = ["clojure"]
-# roots = ["deps.edn"]
-# command = "bash"
-# args = ["-c", "~/.local/bin/clojure-lsp"]
+[language.clojure]
+filetypes = ["clojure"]
+roots = ["project.clj"]
+command = "bash"
+args = ["-c", "~/.local/bin/clojure-lsp"]
 
 [language.json]
 filetypes = ["json"]
@@ -98,3 +98,9 @@ command = "dart_language_server"
 filetypes = ["d", "di"]
 roots = [".git", "dub.sdl", "dub.json"]
 command = "dls"
+
+[language.racket]
+filetypes = ["racket"]
+roots = ["info.rkt"]
+command = "racket-language-server"
+args = ["--stdio"]
