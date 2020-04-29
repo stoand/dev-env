@@ -195,6 +195,17 @@ source ~/.kakoune-surround/surround.kak
 source ~/.kakoune-verilog/verilog.kak
 source ~/.kakoune-gdb/gdb.kak
 source ~/.coqoune/coqoune.kak
+# source ~/.kakoune-racket/rc/racket.kak
+
+hook global BufCreate .*[.](rkt|rktd|rktl) %{
+  set-option buffer filetype racket
+}
+
+
+hook global BufSetOption filetype=clojure %{
+    set-option buffer comment_line ';'
+}
+
 
 declare-option str kiwi_color_fail
 set-option global kiwi_color_fail "StatusLineMode"
@@ -203,6 +214,9 @@ declare-option str kiwi_color_success
 set-option global kiwi_color_success "StatusLineValue"
 
 map global normal <minus> ':enter-user-mode idris-ide<ret>'
+
+# Use Ripgrep instead of Grep
+set-option global grepcmd 'rg -Hn --no-heading'
 
 eval %sh{kak-lsp --kakoune -s $kak_session}
 lsp-enable

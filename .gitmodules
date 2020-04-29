@@ -25,3 +25,6 @@
 [submodule ".kakoune-verilog"]
 	path = .kakoune-verilog
 	url = git@github.com:stoand/kakoune-verilog.git
+[submodule ".kakoune-racket"]
+	path = .kakoune-racket
+	url = https://bitbucket.org/KJ_Duncan/kakoune-racket.kak
