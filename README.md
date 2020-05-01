@@ -33,6 +33,9 @@ tm
 # To start using languages you have to install servers
 # https://github.com/ul/kak-lsp/wiki/How-to-install-servers
 
+# Ocaml lsp (only supports 4.08.0 and under)
+opam pin add ocaml-lsp-server https://github.com/ocaml/ocaml-lsp.git
+
 # To get the correct theme in Konsole
 # Right click -> Edit Current Profile -> Appearance -> KakouneBase16
 ```

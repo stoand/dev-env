@@ -50,9 +50,8 @@ args = ["--stdio"]
 
 [language.ocaml]
 filetypes = ["ocaml"]
-roots = ["Makefile", "opam", "*.opam"]
-command = "ocaml-language-server"
-args = ["--stdio"]
+roots = ["*.opam"]
+command = "ocamllsp"
 
 [language.reason]
 filetypes = ["reason"]

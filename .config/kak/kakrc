@@ -34,7 +34,7 @@ map global user c ':comment-line<ret>' -docstring 'Comment'
 map global user d ':lsp-definition<ret>' -docstring 'LSP Definition'
 
 # Search
-map global user e ':grep %val{selection} --exclude-dir=target --exclude-dir=node_modules<ret>' -docstring 'Search for selection'
+map global user e ':grep %val{selection}<ret>' -docstring 'Search for selection'
 
 # Format
 map global user f ':lsp-formatting-sync<ret>' -docstring 'LSP Format'
@@ -195,6 +195,7 @@ source ~/.kakoune-surround/surround.kak
 source ~/.kakoune-verilog/verilog.kak
 source ~/.kakoune-gdb/gdb.kak
 source ~/.coqoune/coqoune.kak
+source ~/.kakoune-agda/agda.kak
 # source ~/.kakoune-racket/rc/racket.kak
 
 hook global BufCreate .*[.](rkt|rktd|rktl) %{
@@ -204,6 +205,10 @@ hook global BufCreate .*[.](rkt|rktd|rktl) %{
 
 hook global BufSetOption filetype=clojure %{
     set-option buffer comment_line ';'
+}
+
+hook global BufSetOption filetype=ocaml %{
+	set buffer tabstop 2
 }
 
 
@@ -228,4 +233,4 @@ def -override -hidden lsp-show-error -params 1 -docstring "Render error" %{
 
 set global lsp_cmd "kak-lsp -s %val{session} -vvv --log /tmp/kak-lsp.log"
 
-colorscheme base16
+colorscheme default
