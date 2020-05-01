@@ -181,8 +181,6 @@ hook global BufCreate .*[.](tsx) %{
     set-option buffer filetype typescriptreact
 }
 
-init-javascript-filetype typescriptreact
-
 # Abort commit
 hook global WinSetOption filetype=git-commit %{
 	map buffer normal <esc> ':delete-buffer!<ret>';
@@ -209,8 +207,11 @@ hook global BufSetOption filetype=clojure %{
 
 hook global BufSetOption filetype=ocaml %{
 	set buffer tabstop 2
+    set-option buffer comment_block_begin '(*'
+    set-option buffer comment_block_end '*)'
+    # Ocaml has no line comments
+    map buffer user c ':comment-block<ret>' -docstring 'Comment'
 }
-
 
 declare-option str kiwi_color_fail
 set-option global kiwi_color_fail "StatusLineMode"
