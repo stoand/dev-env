@@ -21,7 +21,7 @@
 	url = https://github.com/junegunn/fzf
 [submodule ".kakoune-gdb"]
 	path = .kakoune-gdb
-	url = https://github.com/occivink/kakoune-gdb
+	url = git@github.com:occivink/kakoune-gdb.git
 [submodule ".coqoune"]
 	path = .coqoune
 	url = https://github.com/dkhalansky/coqoune
