@@ -200,6 +200,16 @@ hook global BufCreate .*[.](rkt|rktd|rktl) %{
   set-option buffer filetype racket
 }
 
+hook global BufCreate .* %{
+    hook -group tabs-to-spaces buffer InsertChar \t %{ try %{
+      execute-keys -draft "h<a-h><a-k>\A\h+\z<ret><a-;>;%opt{indentwidth}@"
+    }}
+}
+
+hook global BufSetOption filetype=makefile %{
+    remove-hooks buffer tabs-to-spaces
+}
+
 
 hook global BufSetOption filetype=clojure %{
     set-option buffer comment_line ';'
@@ -234,4 +244,4 @@ def -override -hidden lsp-show-error -params 1 -docstring "Render error" %{
 
 set global lsp_cmd "kak-lsp -s %val{session} -vvv --log /tmp/kak-lsp.log"
 
-colorscheme default
+colorscheme base16
