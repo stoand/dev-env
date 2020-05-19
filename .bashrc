@@ -123,6 +123,7 @@ export PATH=$PATH:~/.fzf/bin
 export PATH=$PATH:~/.blodwen/bin
 export PATH=$PATH:~/.idris2/bin
 export PATH=$PATH:~/.lutris/bin
+export PATH=$PATH:~/.codeql-home/codeql-cli/
 
 # Suppress node warnings especially the ES module type warnings
 export NODE_NO_WARNINGS=1
@@ -140,6 +141,8 @@ alias bw='sudo /home/andreas/.cargo/bin/bandwhich'
 alias aw='nodemon -e md,idr,rs -x "art ls -NS"'
 alias as='art serve'
 alias chez='scheme'
+alias t='tail -n0 -f ' 
+alias clang-wasi="$HOME/wasi-sdk/bin/clang --sysroot=$HOME/wasi-sdk/share/wasi-sysroot "
 
 # Fix colors according to https://discuss.kakoune.com/t/frequently-asked-questions-faq/542
 tic ~/.kakoune/contrib/tmux-256color.terminfo
