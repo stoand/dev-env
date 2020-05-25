@@ -223,13 +223,30 @@ hook global BufSetOption filetype=ocaml %{
     map buffer user c ':comment-block<ret>' -docstring 'Comment'
 }
 
+hook global BufSetOption filetype=idris %{
+    map buffer normal <minus> ':enter-user-mode idris-ide<ret>'
+}
+
+# Kiwi Runner Mode
+# ‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+
+declare-user-mode kiwi-runner
+
+map global kiwi-runner f ':kiwi-open-notification<ret>' -docstring 'open-notification'
+map global kiwi-runner a ':kiwi-list-all-test-files<ret>' -docstring 'list-test-files'
+map global kiwi-runner t ':kiwi-list-all-tests<ret>' -docstring 'list-tests'
+map global kiwi-runner d ':kiwi-list-failed-tests<ret>' -docstring 'list-failed-tests'
+map global kiwi-runner c ':kiwi-list-all-covered-non-test-files<ret>' -docstring 'list-non-test-files'
+
+hook global BufSetOption filetype=typescript %{
+    map buffer normal <minus> ':enter-user-mode kiwi-runner<ret>'
+}
+
 declare-option str kiwi_color_fail
 set-option global kiwi_color_fail "StatusLineMode"
 
 declare-option str kiwi_color_success
 set-option global kiwi_color_success "StatusLineValue"
-
-map global normal <minus> ':enter-user-mode idris-ide<ret>'
 
 # Use Ripgrep instead of Grep
 set-option global grepcmd 'rg -Hn --no-heading'

@@ -128,6 +128,9 @@ export PATH=$PATH:~/.codeql-home/codeql-cli/
 # Suppress node warnings especially the ES module type warnings
 export NODE_NO_WARNINGS=1
 
+# Set Gerbil Home
+export GERBIL_HOME="$HOME/gerbil"
+
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 
 alias tm="tmux new-session \; send-keys 'kak' C-m \; split-window -h \; resize-pane -R 20 \; last-pane \;"
@@ -143,6 +146,7 @@ alias as='art serve'
 alias chez='scheme'
 alias t='tail -n0 -f ' 
 alias clang-wasi="$HOME/wasi-sdk/bin/clang --sysroot=$HOME/wasi-sdk/share/wasi-sysroot "
+alias d="dolphin "
 
 # Fix colors according to https://discuss.kakoune.com/t/frequently-asked-questions-faq/542
 tic ~/.kakoune/contrib/tmux-256color.terminfo
