@@ -124,12 +124,19 @@ export PATH=$PATH:~/.blodwen/bin
 export PATH=$PATH:~/.idris2/bin
 export PATH=$PATH:~/.lutris/bin
 export PATH=$PATH:~/.codeql-home/codeql-cli/
+export PATH=$PATH:~/.deno/bin
 
 # Suppress node warnings especially the ES module type warnings
 export NODE_NO_WARNINGS=1
 
 # Set Gerbil Home
 export GERBIL_HOME="$HOME/gerbil"
+
+# Disable Taichi Opengl
+export TI_ENABLE_OPENGL=0
+
+# Set DifferentialDatalog Home
+export DDLOG_HOME=~/differential-datalog/
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 
@@ -139,7 +146,8 @@ alias ed="kak"
 alias gc="git clone --recurse-submodules "
 alias gp="git pull --all"
 alias gf="git fetch --all"
-alias gs="git push"
+alias gs="git push --all"
+alias add-remote="git remote set-url --add origin "
 alias bw='sudo /home/andreas/.cargo/bin/bandwhich'
 alias aw='nodemon -e md,idr,rs -x "art ls -NS"'
 alias as='art serve'

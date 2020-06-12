@@ -11,6 +11,12 @@ filetypes = ["rust"]
 roots = ["Cargo.toml"]
 command = "rls"
 
+[language.monotonelang]
+filetypes = ["monotonelang"]
+roots = [".monotonelang"]
+command = "node"
+args = ["/home/andreas/anti-db/monotone_lang/dist/language_server.js", "--stdio"]
+
 [language.typescript]
 filetypes = ["javascript", "typescript"]
 roots = ["package.json"]

@@ -239,7 +239,7 @@ map global kiwi-runner d ':kiwi-list-failed-tests<ret>' -docstring 'list-failed-
 map global kiwi-runner c ':kiwi-list-all-covered-non-test-files<ret>' -docstring 'list-non-test-files'
 
 hook global BufSetOption filetype=typescript %{
-    map buffer normal <minus> ':enter-user-mode kiwi-runner<ret>'
+    map global normal <minus> ':enter-user-mode kiwi-runner<ret>'
 }
 
 declare-option str kiwi_color_fail
@@ -247,6 +247,10 @@ set-option global kiwi_color_fail "StatusLineMode"
 
 declare-option str kiwi_color_success
 set-option global kiwi_color_success "StatusLineValue"
+
+# Monotone Lang
+source ~/anti-db/monotone_lang/monotone_lang.kak
+
 
 # Use Ripgrep instead of Grep
 set-option global grepcmd 'rg -Hn --no-heading'
@@ -259,6 +263,6 @@ def -override -hidden lsp-show-error -params 1 -docstring "Render error" %{
     echo -debug "kak-lsp:" %arg{1}
 }
 
-set global lsp_cmd "kak-lsp -s %val{session} -vvv --log /tmp/kak-lsp.log"
+set global lsp_cmd "kak-lsp -s %val{session} -vv --log /tmp/kak-lsp.log"
 
 colorscheme base16
