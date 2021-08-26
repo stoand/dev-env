@@ -22,8 +22,8 @@ mv /tmp/dev-env/* ~/
 
 # Install kak-lsp
 cd /tmp
-wget https://github.com/ul/kak-lsp/releases/download/v7.0.0/kak-lsp-v7.0.0-x86_64-unknown-linux-musl.tar.gz
-tar xzvf kak-lsp-v7.0.0-x86_64-unknown-linux-musl.tar.gz
+wget https://github.com/ul/kak-lsp/releases/download/v10.0.0/kak-lsp-v10.0.0-x86_64-unknown-linux-musl.tar.gz
+tar xzvf kak-lsp-v10.0.0-x86_64-unknown-linux-musl.tar.gz
 mv kak-lsp ~/.local/bin/
 
 # Start tmux and kakoune
