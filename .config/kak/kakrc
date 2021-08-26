@@ -4,7 +4,9 @@ hook global InsertChar k %{ try %{
 }}
 
 set global tabstop 4
+set global indentwidth 4
 set global ui_options ncurses_assistant=off
+
 add-highlighter global/ show-matching
 
 # Hook global write
@@ -12,6 +14,9 @@ hook global NormalIdle .*(?!COMMIT_EDITMSG) write-all
 
 # Set leader key
 map global normal <space> , -docstring 'leader'
+
+# Use ; to run commands
+map global normal ";" ":"
 
 # Git commit
 map global user a ':commit-if-valid-file<ret>' -docstring 'Commit all changes'
@@ -57,6 +62,9 @@ map global user j ':fzf-edit<ret>' -docstring 'Fuzzy find git file'
 map global user k ':fzf-buffer<ret>' -docstring 'Fuzzy find buffer'
 
 map global user l ':fzf-project<ret>' -docstring 'Fuzzy find project in home directory'
+
+map global user t ':git log<ret>' -docstring 'Git Log'
+map global user T ':git log %val{bufname}<ret>' -docstring 'Git Log Current File'
 
 map global user o ':fzf-branch<ret>' -docstring 'Fuzzy find branch'
 
@@ -264,5 +272,9 @@ def -override -hidden lsp-show-error -params 1 -docstring "Render error" %{
 }
 
 set global lsp_cmd "kak-lsp -s %val{session} -vv --log /tmp/kak-lsp.log"
+
+define-command gad %{ git add . } -docstring 'Git add Current Dir'
+define-command gam %{ git commit --ammend } -docstring 'Git Commit Ammend'
+define-command gr %{ nop %sh{ git stash -- "$kak_bufname" }; edit! %val{bufname} } -docstring 'Git Reset (Stash)'
 
 colorscheme base16
