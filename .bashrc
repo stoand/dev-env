@@ -146,7 +146,8 @@ alias ed="kak"
 alias gc="git clone --recurse-submodules "
 alias gp="git pull --all"
 alias gf="git fetch --all"
-alias gs="git push --all"
+alias gs="git push -u origin HEAD"
+alias gad="git add ."
 alias add-remote="git remote set-url --add origin "
 alias bw='sudo /home/andreas/.cargo/bin/bandwhich'
 alias aw='nodemon -e md,idr,rs -x "art ls -NS"'
@@ -165,3 +166,23 @@ test -f "~/.local/bin/opam" && eval `~/.local/bin/opam env`
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
