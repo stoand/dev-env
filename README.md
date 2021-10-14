@@ -3,7 +3,7 @@
 ## Setup
 ```
 sudo apt update
-sudo apt install ssh git libncursesw5-dev pkg-config tmux xsel -y
+sudo apt install ssh git libncursesw5-dev pkg-config tmux xsel ripgrep -y
 ssh-keygen
 cat ~/.ssh/id_rsa.pub
 # Copy and paste this key to github account settings
