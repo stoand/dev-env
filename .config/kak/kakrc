@@ -246,6 +246,8 @@ map global kiwi-runner t ':kiwi-list-all-tests<ret>' -docstring 'list-tests'
 map global kiwi-runner d ':kiwi-list-failed-tests<ret>' -docstring 'list-failed-tests'
 map global kiwi-runner c ':kiwi-list-all-covered-non-test-files<ret>' -docstring 'list-non-test-files'
 
+source ~/.config/kak/typescriptreact.kak
+
 hook global BufSetOption filetype=typescript %{
     map global normal <minus> ':enter-user-mode kiwi-runner<ret>'
 }

@@ -22,13 +22,12 @@ filetypes = ["javascript", "typescript"]
 roots = ["package.json"]
 command = "typescript-language-server"
 args = ["--stdio"]
-# command = "javascript-typescript-stdio"
-# command = "tsserver"
 
 [language.typescriptreact]
 filetypes = ["typescriptreact"]
 roots = ["package.json"]
-command = "javascript-typescript-stdio"
+command = "typescript-language-server"
+args = ["--stdio"]
 
 [language.clojure]
 filetypes = ["clojure"]
