@@ -156,6 +156,7 @@ alias chez='scheme'
 alias t='tail -n0 -f ' 
 alias clang-wasi="$HOME/wasi-sdk/bin/clang --sysroot=$HOME/wasi-sdk/share/wasi-sysroot "
 alias d="dolphin "
+alias i="sudo apt install -y "
 
 # Fix colors according to https://discuss.kakoune.com/t/frequently-asked-questions-faq/542
 tic ~/.kakoune/contrib/tmux-256color.terminfo
@@ -186,3 +187,4 @@ export NVM_DIR="$HOME/.nvm"
 
 
 
+. "$HOME/.cargo/env"
