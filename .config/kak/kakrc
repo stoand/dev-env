@@ -283,6 +283,6 @@ set global lsp_cmd "kak-lsp -s %val{session} -vv --log /tmp/kak-lsp.log"
 
 define-command gad %{ git add . } -docstring 'Git add Current Dir'
 define-command gam %{ git commit --ammend } -docstring 'Git Commit Ammend'
-define-command gr %{ nop %sh{ git stash -- "$kak_bufname" }; edit! %val{bufname} } -docstring 'Git Reset (Stash)'
+define-command gr %{ nop %sh{ git stash -- "$kak_bufname" }; edit! %val{bufname} } -docstring 'Git Reset Current Buffer (Stash)'
 
 colorscheme base16
