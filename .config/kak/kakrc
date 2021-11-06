@@ -188,6 +188,12 @@ hook global InsertDelete ' ' %{ try %sh{
 hook global BufCreate .*[.](tsx) %{
     set-option buffer filetype typescriptreact
 }
+ 
+hook global BufCreate .*[.](heex) %{
+    set global tabstop 2
+    set global indentwidth 2
+    set-option buffer filetype html
+}
 
 # Abort commit
 hook global WinSetOption filetype=git-commit %{
