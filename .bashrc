@@ -162,30 +162,9 @@ alias ed="kak"
 # Fix colors according to https://discuss.kakoune.com/t/frequently-asked-questions-faq/542
 tic ~/.kakoune/contrib/tmux-256color.terminfo
 
-# Ocaml Package Manager
-test -f "~/.local/bin/opam" && eval `~/.local/bin/opam env`
-
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 . "$HOME/.cargo/env"
+. "$HOME/.asdf/asdf.sh"
