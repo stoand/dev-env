@@ -12,6 +12,12 @@ roots = [".git", "mix.exs"]
 command = "sh"
 args = ["/home/andreas/.local/bin/elsp/language_server.sh"]
 
+[language.java]
+filetypes = ["java"]
+roots = [".git"]
+command = "sh"
+args = ["/home/andreas/.local/bin/java-lsp.sh"]
+
 [language.rust]
 filetypes = ["rust"]
 roots = ["Cargo.toml"]

@@ -33,6 +33,14 @@ tm
 # To start using languages you have to install servers
 # https://github.com/ul/kak-lsp/wiki/How-to-install-servers
 
+# Java lsp
+mkdir ~/.local/share/java-lsp/
+cd ~/.local/share/java-lsp/
+wget https://download.eclipse.org/jdtls/snapshots/jdt-language-server-1.6.0-202111171744.tar.gz
+tar -xf jdt-language-server-1.6.0-202111171744.tar.gz
+chmod +x ~/.local/bin/java-lsp.sh
+
+
 # Ocaml lsp (only supports 4.08.0 and under)
 opam pin add ocaml-lsp-server https://github.com/ocaml/ocaml-lsp.git
 opam install ocamlformat
