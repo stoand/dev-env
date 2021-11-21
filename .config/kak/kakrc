@@ -194,6 +194,12 @@ hook global BufCreate .*[.](heex) %{
     set global indentwidth 2
     set-option buffer filetype html
 }
+ 
+hook global BufCreate .*[.](aya) %{
+    set global tabstop 2
+    set global indentwidth 2
+    set-option buffer filetype aya
+}
 
 # Abort commit
 hook global WinSetOption filetype=git-commit %{

@@ -18,6 +18,12 @@ roots = [".git"]
 command = "sh"
 args = ["/home/andreas/.local/bin/java-lsp.sh"]
 
+[language.aya]
+filetypes = ["aya"]
+roots = [".git"]
+command = "sh"
+args = ["/home/andreas/aya-dev/lsp/build/image/bin/aya-lsp", "--mode=debug"]
+
 [language.rust]
 filetypes = ["rust"]
 roots = ["Cargo.toml"]
