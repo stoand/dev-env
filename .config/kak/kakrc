@@ -261,7 +261,7 @@ map global kiwi-runner c ':kiwi-list-all-covered-non-test-files<ret>' -docstring
 source ~/.config/kak/typescriptreact.kak
 
 hook global BufSetOption filetype=typescript %{
-    map global normal <minus> ':enter-user-mode kiwi-runner<ret>'
+    map buffer normal <minus> ':enter-user-mode kiwi-runner<ret>'
 }
 
 declare-option str kiwi_color_fail
