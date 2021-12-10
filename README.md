@@ -44,6 +44,12 @@ opam pin add ocaml-lsp-server https://github.com/ocaml/ocaml-lsp.git
 opam install ocamlformat
 # Do not forget to create `.ocamlformat` in project dir
 
+# Haskell lsp
+
+* Install stack
+* `wget` then `tar -xf` latest `.tar.gz` Linux (release)[https://github.com/haskell/haskell-language-server/releases] 
+* cp all haskell* files to ~/.local/bin
+
 # To get the correct theme in Konsole
 # Right click -> Edit Current Profile -> Appearance -> KakouneBase16
 ```
