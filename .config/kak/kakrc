@@ -63,6 +63,8 @@ map global user k ':fzf-buffer<ret>' -docstring 'Fuzzy find buffer'
 
 map global user l ':fzf-project<ret>' -docstring 'Fuzzy find project in home directory'
 
+map global user m ':lsp-code-actions<ret>' -docstring 'LSP Actions'
+
 map global user t ':git log<ret>' -docstring 'Git Log'
 map global user T ':git log %val{bufname}<ret>' -docstring 'Git Log Current File'
 
