@@ -208,13 +208,27 @@ hook global WinSetOption filetype=git-commit %{
 	map buffer normal <esc> ':delete-buffer!<ret>';
 }
 
-define-command -docstring 'Format Scheme Source' -params 0 scheme-format %{
+define-command -docstring 'Format Scheme' -params 0 scheme-format %{
     exec -draft '\%|shfmt "$kak_bufname"<ret>'
+}
+
+define-command -docstring 'Comment Scheme' -params 0 scheme-comment %{
+    exec -draft '<a-a>b<ret>:comment-block<ret>'
 }
 
 hook global WinSetOption filetype=scheme %{
     map buffer user f ':scheme-format<ret>' -docstring 'Scheme Format'
+
+    # Comments
+    map global user c ':scheme-comment<ret>' -docstring 'Comment'
+    
+    add-highlighter -override shared/scheme/comment-block region "\(\*" "\*\)" fill comment
+    
+    set-option buffer comment_line ';'
+    set-option buffer comment_block_begin '(* '
+    set-option buffer comment_block_end ' *)'
 }
+
 
 source ~/.kakoune-idris/idris.kak
 source ~/.kakoune-formality/formality.kak
