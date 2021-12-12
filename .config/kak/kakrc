@@ -208,6 +208,14 @@ hook global WinSetOption filetype=git-commit %{
 	map buffer normal <esc> ':delete-buffer!<ret>';
 }
 
+define-command -docstring 'Format Scheme Source' -params 0 scheme-format %{
+    exec -draft '\%|shfmt "$kak_bufname"<ret>'
+}
+
+hook global WinSetOption filetype=scheme %{
+    map buffer user f ':scheme-format<ret>' -docstring 'Scheme Format'
+}
+
 source ~/.kakoune-idris/idris.kak
 source ~/.kakoune-formality/formality.kak
 source ~/.kakoune-datafun/datafun.kak
