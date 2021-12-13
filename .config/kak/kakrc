@@ -212,15 +212,11 @@ define-command -docstring 'Format Scheme' -params 0 scheme-format %{
     exec -draft '\%|shfmt "$kak_bufname"<ret>'
 }
 
-define-command -docstring 'Comment Scheme' -params 0 scheme-comment %{
-    exec -draft '<a-a>b<ret>:comment-block<ret>'
-}
-
 hook global WinSetOption filetype=scheme %{
     map buffer user f ':scheme-format<ret>' -docstring 'Scheme Format'
 
     # Comments
-    map global user c ':scheme-comment<ret>' -docstring 'Comment'
+    map global user c ':comment-block<ret>' -docstring 'Comment'
     
     add-highlighter -override shared/scheme/comment-block region "\(\*" "\*\)" fill comment
     
