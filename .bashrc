@@ -125,6 +125,7 @@ export PATH=$PATH:~/.idris2/bin
 export PATH=$PATH:~/.lutris/bin
 export PATH=$PATH:~/.codeql-home/codeql-cli/
 export PATH=$PATH:~/.deno/bin
+export PATH=$PATH:~/.maven-3.8.4/bin
 
 # Suppress node warnings especially the ES module type warnings
 export NODE_NO_WARNINGS=1
@@ -158,6 +159,7 @@ alias clang-wasi="$HOME/wasi-sdk/bin/clang --sysroot=$HOME/wasi-sdk/share/wasi-s
 alias d="dolphin "
 alias i="sudo apt install -y "
 alias ed="kak"
+alias ps="python3 -m http.server"
 
 # Fix colors according to https://discuss.kakoune.com/t/frequently-asked-questions-faq/542
 tic ~/.kakoune/contrib/tmux-256color.terminfo
@@ -168,3 +170,11 @@ export NVM_DIR="$HOME/.nvm"
 
 . "$HOME/.cargo/env"
 . "$HOME/.asdf/asdf.sh"
+# OPS config
+export OPS_DIR="$HOME/.ops"
+export PATH="$HOME/.ops/bin:$PATH"
+source "$HOME/.ops/scripts/bash_completion.sh"
+
+export WASMTIME_HOME="$HOME/.wasmtime"
+
+export PATH="$WASMTIME_HOME/bin:$PATH"
