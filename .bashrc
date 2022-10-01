@@ -159,7 +159,7 @@ alias clang-wasi="$HOME/wasi-sdk/bin/clang --sysroot=$HOME/wasi-sdk/share/wasi-s
 alias d="dolphin "
 alias i="sudo apt install -y "
 alias ed="kak"
-alias ps="python3 -m http.server"
+alias ph="python3 -m http.server"
 
 # Fix colors according to https://discuss.kakoune.com/t/frequently-asked-questions-faq/542
 tic ~/.kakoune/contrib/tmux-256color.terminfo
