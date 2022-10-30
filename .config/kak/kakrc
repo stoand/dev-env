@@ -76,6 +76,9 @@ map global user p '<a-!>xsel --output --clipboard<ret>' -docstring 'Paste'
 # References
 map global user r ':lsp-references<ret>' -docstring 'LSP References'
 
+# Restart LSP
+map global user R ':lsp-stop<ret>:lsp-start<ret>' -docstring 'LSP Restart'
+
 map global user s ':surround<ret><b>' -docstring 'Surround ()'
 map global user S ':delete-surround<ret><b>' -docstring 'Unsurround ()'
 
@@ -253,6 +256,8 @@ hook global BufSetOption filetype=makefile %{
 
 hook global BufSetOption filetype=clojure %{
     set-option buffer comment_line ';'
+  	set buffer tabstop 2
+    set global indentwidth 4
 }
 
 hook global BufSetOption filetype=ocaml %{
