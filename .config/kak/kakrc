@@ -9,6 +9,8 @@ set global ui_options ncurses_assistant=off
 
 add-highlighter global/ show-matching
 
+map global normal X 'Jx'
+
 # Hook global write
 hook global NormalIdle .*(?!COMMIT_EDITMSG) write-all
 
