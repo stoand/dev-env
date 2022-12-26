@@ -31,3 +31,6 @@
 [submodule ".kakoune-racket"]
 	path = .kakoune-racket
 	url = https://bitbucket.org/KJ_Duncan/kakoune-racket.kak
+[submodule ".csharp.kak"]
+	path = .csharp.kak
+	url = git@github.com:mspielberg/csharp.kak.git

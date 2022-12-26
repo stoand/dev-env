@@ -240,6 +240,12 @@ source ~/.kakoune-surround/surround.kak
 # source ~/.coqoune/coqoune.kak
 # source ~/.kakoune-agda/agda.kak
 # # source ~/.kakoune-racket/rc/racket.kak
+source ~/.kakoune-verilog/verilog.kak
+source ~/.kakoune-gdb/gdb.kak
+source ~/.coqoune/coqoune.kak
+source ~/.kakoune-agda/agda.kak
+# source ~/.kakoune-racket/rc/racket.kak
+source ~/.csharp.kak/rc/filetype/csharp.kak
 
 hook global BufCreate .*[.](rkt|rktd|rktl) %{
   set-option buffer filetype racket
