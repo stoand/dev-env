@@ -27,7 +27,8 @@ args = ["--mode=debug"]
 [language.rust]
 filetypes = ["rust"]
 roots = ["Cargo.toml"]
-command = "rls"
+command = "rust-analyzer"
+# command = "rls"
 
 [language.monotonelang]
 filetypes = ["monotonelang"]
@@ -108,8 +109,8 @@ args = ["exec", "--", "haskell-language-server-wrapper", "--lsp"]
 [language.go]
 filetypes = ["go"]
 roots = ["Gopkg.toml", "go.mod", ".git", ".hg"]
-command = "go-langserver"
-args = ["-mode", "stdio", "-gocodecompletion"]
+command = "gopls"
+# args = ["-mode", "stdio", "-gocodecompletion"]
 
 [language.bash]
 filetypes = ["sh"]

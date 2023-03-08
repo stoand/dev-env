@@ -229,15 +229,15 @@ hook global WinSetOption filetype=scheme %{
 }
 
 
-source ~/.kakoune-idris/idris.kak
-source ~/.kakoune-formality/formality.kak
-source ~/.kakoune-datafun/datafun.kak
+# source ~/.kakoune-idris/idris.kak
+# source ~/.kakoune-formality/formality.kak
+# source ~/.kakoune-datafun/datafun.kak
 source ~/.kakoune-surround/surround.kak
-source ~/.kakoune-verilog/verilog.kak
-source ~/.kakoune-gdb/gdb.kak
-source ~/.coqoune/coqoune.kak
-source ~/.kakoune-agda/agda.kak
-# source ~/.kakoune-racket/rc/racket.kak
+# source ~/.kakoune-verilog/verilog.kak
+# source ~/.kakoune-gdb/gdb.kak
+# source ~/.coqoune/coqoune.kak
+# source ~/.kakoune-agda/agda.kak
+# # source ~/.kakoune-racket/rc/racket.kak
 
 hook global BufCreate .*[.](rkt|rktd|rktl) %{
   set-option buffer filetype racket
@@ -296,7 +296,7 @@ declare-option str kiwi_color_success
 set-option global kiwi_color_success "StatusLineValue"
 
 # Monotone Lang
-source ~/anti-db/monotone_lang/monotone_lang.kak
+# source ~/anti-db/monotone_lang/monotone_lang.kak
 
 
 # Use Ripgrep instead of Grep
@@ -310,10 +310,12 @@ def -override -hidden lsp-show-error -params 1 -docstring "Render error" %{
     echo -debug "kak-lsp:" %arg{1}
 }
 
-set global lsp_cmd "kak-lsp -s %val{session} -vv --log /tmp/kak-lsp.log"
+set global lsp_cmd "kak-lsp -s %val{session} -vvv --log /tmp/kak-lsp.log"
 
 define-command gad %{ git add . } -docstring 'Git add Current Dir'
 define-command gam %{ git commit --ammend } -docstring 'Git Commit Ammend'
 define-command gr %{ nop %sh{ git stash -- "$kak_bufname" }; edit! %val{bufname} } -docstring 'Git Reset Current Buffer (Stash)'
 
 colorscheme base16
+
+set global ui_options 'terminal_assistant=off'

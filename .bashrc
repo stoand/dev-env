@@ -126,6 +126,9 @@ export PATH=$PATH:~/.lutris/bin
 export PATH=$PATH:~/.codeql-home/codeql-cli/
 export PATH=$PATH:~/.deno/bin
 export PATH=$PATH:~/.maven-3.8.4/bin
+export PATH=$PATH:~/.aya/bin
+export PATH=$PATH:~/.go/bin
+export PATH=$PATH:~/go/bin
 
 # Suppress node warnings especially the ES module type warnings
 export NODE_NO_WARNINGS=1
@@ -160,6 +163,7 @@ alias d="dolphin "
 alias i="sudo apt install -y "
 alias ed="kak"
 alias ph="python3 -m http.server"
+alias crane="~/rustc_codegen_cranelift/build/cargo-clif "
 
 # Fix colors according to https://discuss.kakoune.com/t/frequently-asked-questions-faq/542
 tic ~/.kakoune/contrib/tmux-256color.terminfo
@@ -169,11 +173,11 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 . "$HOME/.cargo/env"
-. "$HOME/.asdf/asdf.sh"
+# . "$HOME/.asdf/asdf.sh"
 # OPS config
-export OPS_DIR="$HOME/.ops"
-export PATH="$HOME/.ops/bin:$PATH"
-source "$HOME/.ops/scripts/bash_completion.sh"
+# export OPS_DIR="$HOME/.ops"
+# export PATH="$HOME/.ops/bin:$PATH"
+# source "$HOME/.ops/scripts/bash_completion.sh"
 
 export WASMTIME_HOME="$HOME/.wasmtime"
 
