@@ -13,7 +13,7 @@ add-highlighter global/ show-matching
 hook global NormalIdle .*(?!COMMIT_EDITMSG) write-all
 
 # Set leader key
-map global normal <space> , -docstring 'leader'
+# map global normal <space> , -docstring 'leader'
 
 # Use ; to run commands
 map global normal ";" ":"
