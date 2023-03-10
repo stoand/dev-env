@@ -127,6 +127,7 @@ export PATH=$PATH:~/.codeql-home/codeql-cli/
 export PATH=$PATH:~/.deno/bin
 export PATH=$PATH:~/.maven-3.8.4/bin
 export PATH=$PATH:~/.aya/bin
+export PATH=$PATH:~/.ddlog/bin
 export PATH=$PATH:~/.go/bin
 export PATH=$PATH:~/go/bin
 
@@ -186,3 +187,7 @@ export PATH="$WASMTIME_HOME/bin:$PATH"
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="$HOME/.sdkman"
 [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH=$BUN_INSTALL/bin:$PATH

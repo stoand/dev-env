@@ -30,6 +30,11 @@ roots = ["Cargo.toml"]
 command = "rust-analyzer"
 # command = "rls"
 
+[language.idris]
+filetypes = ["idris"]
+roots = [".git"]
+command = "idris2-lsp"
+
 [language.monotonelang]
 filetypes = ["monotonelang"]
 roots = [".monotonelang"]
@@ -110,7 +115,7 @@ args = ["exec", "--", "haskell-language-server-wrapper", "--lsp"]
 filetypes = ["go"]
 roots = ["Gopkg.toml", "go.mod", ".git", ".hg"]
 command = "gopls"
-# args = ["-mode", "stdio", "-gocodecompletion"]
+args = []
 
 [language.bash]
 filetypes = ["sh"]
