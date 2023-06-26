@@ -6,11 +6,23 @@ verbosity = 3
 # set to 0 to disable
 timeout = 1800 # seconds = 30 minutes
 
+[language.html]
+filetypes = ["html"]
+roots = ["package.json"]
+command = "html-languageserver"
+args = ["--stdio"]
+
 [language.elixir]
 filetypes = ["elixir"]
 roots = [".git", "mix.exs"]
 command = "sh"
-args = ["/home/andreas/.local/bin/elsp/language_server.sh"]
+args = ["/home/andreas/.local/elixir-ls/language_server.sh"]
+
+[language.html_elixir]
+filetypes = ["html"]
+roots = ["mix.exs"]
+command = "sh"
+args = ["/home/andreas/.local/elixir-ls/language_server.sh"]
 
 [language.java]
 filetypes = ["java"]
@@ -77,10 +89,10 @@ roots = ["package.json"]
 command = "css-languageserver"
 args = ["--stdio"]
 
-[language.html]
-filetypes = ["html"]
+[language.scss]
+filetypes = ["scss"]
 roots = ["package.json"]
-command = "html-languageserver"
+command = "css-languageserver"
 args = ["--stdio"]
 
 [language.ocaml]

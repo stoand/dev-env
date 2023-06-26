@@ -130,6 +130,7 @@ export PATH=$PATH:~/.aya/bin
 export PATH=$PATH:~/.ddlog/bin
 export PATH=$PATH:~/.go/bin
 export PATH=$PATH:~/go/bin
+export PATH=$PATH:~/bin
 
 # Suppress node warnings especially the ES module type warnings
 export NODE_NO_WARNINGS=1
@@ -143,6 +144,12 @@ export TI_ENABLE_OPENGL=0
 # Set DifferentialDatalog Home
 export DDLOG_HOME=~/differential-datalog/
 
+export ANDROID_HOME=/home/andreas/Android/Sdk
+
+export PATH=$PATH:$ANDROID_HOME/platform-tools
+
+export JAVA_HOME=/usr/lib/jvm/java-1.17.0-openjdk-amd64/
+
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 
 alias tm="tmux new-session \; send-keys 'kak' C-m \; split-window -h \; resize-pane -R 20 \; last-pane \;"
@@ -155,7 +162,7 @@ alias gs="git push -u origin HEAD"
 alias gad="git add ."
 alias add-remote="git remote set-url --add origin "
 alias bw='sudo /home/andreas/.cargo/bin/bandwhich'
-alias aw='nodemon -e md,idr,rs -x "art ls -NS"'
+alias aw='nodemon -e md,idr,rs,clj,cljs,js,ts -x "art ls -NS"'
 alias as='art serve'
 alias chez='scheme'
 alias t='tail -n0 -f ' 
@@ -165,6 +172,7 @@ alias i="sudo apt install -y "
 alias ed="kak"
 alias ph="python3 -m http.server"
 alias crane="~/rustc_codegen_cranelift/build/cargo-clif "
+alias python=python3
 
 # Fix colors according to https://discuss.kakoune.com/t/frequently-asked-questions-faq/542
 tic ~/.kakoune/contrib/tmux-256color.terminfo
@@ -174,7 +182,9 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 . "$HOME/.cargo/env"
-# . "$HOME/.asdf/asdf.sh"
+. "$HOME/.asdf/asdf.sh"
+. "$HOME/.asdf/completions/asdf.bash"
+
 # OPS config
 # export OPS_DIR="$HOME/.ops"
 # export PATH="$HOME/.ops/bin:$PATH"
@@ -190,4 +200,4 @@ export SDKMAN_DIR="$HOME/.sdkman"
 
 # bun
 export BUN_INSTALL="$HOME/.bun"
-export PATH=$BUN_INSTALL/bin:$PATH
+export PATH="$BUN_INSTALL/bin:$PATH"

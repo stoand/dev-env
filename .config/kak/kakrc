@@ -231,7 +231,7 @@ hook global WinSetOption filetype=scheme %{
 }
 
 
-# source ~/.kakoune-idris/idris.kak
+source ~/.kakoune-idris/idris.kak
 # source ~/.kakoune-formality/formality.kak
 # source ~/.kakoune-datafun/datafun.kak
 source ~/.kakoune-surround/surround.kak
